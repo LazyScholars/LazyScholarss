@@ -50,7 +50,8 @@ from citation_generator import CitationGenerator
 os.environ["PATH"] += os.pathsep + r"C:\Program Files\Graphviz\bin"
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)  # Set a secret key for the app
+app.config["SECRET_KEY"] = os.getenv("SECRET_KEY", "default_secret_key")
+  # Set a secret key for the app
 
 API_ENDPOINT = "https://api.semanticscholar.org/graph/v1/paper/search"  # Semantic Scholar API
 # Define API endpoints for Semantic Scholar and ArXiv
@@ -64,7 +65,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 CORS(app)  # Enable CORS for all routes
 
 # Configure SQLAlchemy for PostgreSQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:Gownahalli123!@localhost/research_assistant'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
