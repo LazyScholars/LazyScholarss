@@ -1,6 +1,7 @@
 Flask
 flask-cors
 flask-sqlalchemy
+gunicorn
 werkzeug
 PyPDF2
 openai
@@ -15,5 +16,6 @@ pyvis
 pandas
 seaborn
 matplotlib
-sklearn
+scikit-learn
 numpy
+
