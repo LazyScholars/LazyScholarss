@@ -65,7 +65,8 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 CORS(app)  # Enable CORS for all routes
 
 # Configure SQLAlchemy for PostgreSQL
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:Gownahalli123!@localhost:5432/research_assistant'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgres://postgres:Gownahalli123!@localhost:5432/research_assistant')
+
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
