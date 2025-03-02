@@ -18,4 +18,6 @@ seaborn
 matplotlib
 scikit-learn
 numpy
+psycopg2-binary
+
 
